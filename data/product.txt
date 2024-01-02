@@ -1,0 +1,20 @@
+F1011, Chicken Burger, Ramly, 7.50, Available
+F1012, Beef Burger, Ramly, 9.00, Available
+F1013, Daging Salai, Ramly, 12.50, Available
+F1111, Crispy Tempura Nugget, Ayamas, 18.50, Available
+F1112, Chicken Meatloaf, Ayamas, 5.00, Out of Stock
+F1113, "Chicken Frankfurters - Cheese", Ayamas, 7.00, Available
+F1114, "Chicken Frankfurters - Mushroom", Ayamas, 7.00, Out of Stock
+F1201, Roti Canai, KAWAN, 15.00, Available
+F1202, Roti Chapatti, KAWAN, 6.00, Out of Stock
+F1203, Mozzarella Cheese Sticks, KAWAN, 25.00, Available
+F1204, Vadai, KAWAN, 7.50, Out of Stock
+F1203, Chicken Rendang Bun, KAWAN, 8.00
+B2011, Green Tea Latte, BOH, 14.50, Available
+B2012, 3 In 1 Vanilla Tea Less Sugar, BOH, 12.00, Available
+B2013, 3 In 1 Original Tea Less Sugar, BOH, 10.50, Available
+B2014, JUMBO Potbag KAW, BOH, 6.50, Available
+B2111, Lemon Ginseng Green Tea, Lipton, 232.00, Available
+B2112, Lipton Milk Tea 3in1 Classic, Lipton, 15.00, Available
+B3111, "Alicafe Tongkat Ali & Ginseng Original", Power Root, 14.80, Available
+B3112, "Per'l Kacip Fatimah & Collagen Cafe", Power Root, 16.00, Available
