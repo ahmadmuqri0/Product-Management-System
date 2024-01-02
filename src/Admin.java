@@ -63,5 +63,72 @@ public class Admin {
         System.out.println("User does not exist!");
         return false;
     }
+
+    public boolean removeReview(Review review, Queue reviews){
+
+        boolean found = false;
+        Queue tempQueue = new Queue();
+
+        while(!reviews.isEmpty()) {
+            Review temp = (Review) reviews.dequeue();
+            if(!temp.getProductName().equalsIgnoreCase(review.getProductName())){
+                tempQueue.enqueue(temp);
+            }
+            else{
+                found = true;
+            }
+        }
+
+        while(!tempQueue.isEmpty()){
+            reviews.enqueue(tempQueue.dequeue());
+        }
+
+        return found;
+    }
+
+    public boolean addProduct(Product product, LinkedList products){
     
+        boolean found = false;
+        Object data = products.getFirst();
+
+        while(data != null){
+            Product temp = (Product) data;
+            if(temp.getProductName().equalsIgnoreCase(product.getProductName())){
+                if(temp.getProductID().equalsIgnoreCase(product.getProductID())){
+                    found = true;
+                }
+            }
+            data = products.getNext();
+        }
+            if (found) {
+                System.out.println("Product already exist!");
+                return false;
+            }
+            
+        products.insertAtBack(product);
+        return true;
+    }
+
+    public boolean removeProduct(Product product, LinkedList products){
+
+        boolean found = false;
+        Object data = products.getFirst();
+
+        while( data != null){
+            Product temp = (Product) data;
+            if(temp.getProductName().equalsIgnoreCase(product.getProductName())){
+                found = true;
+                break;
+            }
+            data = products.getNext();
+        }
+
+        if(found){
+            products.remove(data);
+            return true;
+        }
+
+        System.out.println("Product does not exist!");
+        return false;
+    }
 }
