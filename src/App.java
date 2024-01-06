@@ -17,16 +17,16 @@ public class App
 
     public static void main(String[] args) {
 
-        userData = new FileUser("../data/user.txt");
+        userData = new FileUser("data/user.txt");
         users = userData.loadUser();
 
-        reviewData = new FileReview("../data/review.txt");
+        reviewData = new FileReview("data/review.txt");
         reviews = reviewData.loadReview();
 
-        productData = new FileProduct("../data/product.txt");
+        productData = new FileProduct("data/product.txt");
         products = productData.loadProduct();
 
-        String[] items = {".",".",".",".",".","M","E","G","A","H", " ", "H","O","L", "D","I","N","G",".",".",".",".",".","\n"
+        String[] items = {".",".",".",".",".",".","M","E","G","A","H", " ", "H","O","L", "D","I","N","G",".",".",".",".",".",".","\n"
                           ,"S","T","A","R","T","I","N","G"," T","H","E ","P","R","O","G","R","A","M",".",".",".",".","."};
             for (String item : items) 
             {
@@ -51,15 +51,15 @@ public class App
             System.out.println("||                                                              ||");
             System.out.println("||    Search every product or review based on your desire!!!    ||");
             System.out.println("||                                                              ||");
-            System.out.println("||              ==================================              ||");
+            System.out.println("||              +================================+              ||");
             System.out.println("||              |             WELCOME            |              ||");
-            System.out.println("||              |--------------------------------|              ||");
+            System.out.println("||              +--------------------------------+              ||");
             System.out.println("||              | 1.| Login as Admin             |              ||");
-            System.out.println("||              |---+----------------------------|              ||");
+            System.out.println("||              +--------------------------------+              ||");
             System.out.println("||              | 2.| Login as User              |              ||");
-            System.out.println("||              |---+----------------------------|              ||");
+            System.out.println("||              +--------------------------------+              ||");
             System.out.println("||              | 3.| Exit                       |              ||");
-            System.out.println("||              ==================================              ||");
+            System.out.println("||              +================================+              ||");
             System.out.println("||                                                              ||");
             System.out.println("==================================================================");
             
@@ -101,7 +101,7 @@ public class App
 
     private static void adminAuth() {
 
-        FileAdmin adminData = new FileAdmin("../data/admin.txt");
+        FileAdmin adminData = new FileAdmin("data/admin.txt");
         LinkedList admins = adminData.loadAdmin();
 
         while (true) 
@@ -170,6 +170,7 @@ public class App
                         break;
                     }
                 }
+                data = users.getNext();
             }
     
             if (found) 
@@ -251,8 +252,8 @@ public class App
                     else{
                         System.out.println("\nFailed to add the user.");
                     }
+                    
                 }
-                //clearConsole();
             }
 
             else if (option == 2) 
@@ -302,17 +303,33 @@ public class App
 
             else if (option == 3) 
             {
-               /*System.out.println("\nHow many review to removed?");
+               System.out.println("\nHow many review to removed?");
                int remReview = sc.nextInt();
                sc.nextLine();
 
                for(int i = 0; i < remReview; i++)
-               {*/
+               {
                     System.out.println("Enter product name");
                     String productName = sc.nextLine();
 
-                    Review review = new Review(productName,"","","",0);
-                    boolean removed = admin.removeReview(review,reviews);
+                    Review obj = null;
+                    Queue tempQueue = new Queue();
+
+                    while (!reviews.isEmpty()) {
+                        obj = (Review) reviews.dequeue();
+                        if (obj.getProductName().equalsIgnoreCase(productName)) {
+                            tempQueue.enqueue(obj);
+                            break;
+                        }
+                        tempQueue.enqueue(obj);
+                    }
+
+                    while (!tempQueue.isEmpty()) {
+                        Object data = tempQueue.dequeue();
+                        reviews.enqueue(data);
+                    }
+
+                    boolean removed = admin.removeReview(obj, reviews);
                     
                     String[] items = {"\nU","P","D","A","T","I","N","G",".",".","."};
                 
@@ -337,7 +354,7 @@ public class App
                     else{
                         System.out.println("The review does not exist or invalid input.");
                     }
-                //}
+                }
                 }
             }
 
@@ -438,7 +455,7 @@ public class App
 
             else 
             {
-                System.out.println("Invalid input. Please enter correctly.");
+                System.out.println("\nInvalid input. Please enter correctly.");
             }
         }
         
@@ -468,9 +485,13 @@ public class App
 
             if (option == 1) 
             {
+                System.out.println("==============================================================");
+                System.out.println("                        Product list                          ");
+                System.out.println("==============================================================\n");
+                user.totalProduct(products);
                 user.displayProduct(products);
 
-                System.out.println("\nDo you have specific product to find? (Y/N)");
+                System.out.println("Do you have specific product to find? (Y/N)");
                 char search = sc.next().charAt(0);
                 
                 
@@ -505,7 +526,7 @@ public class App
                 
                 if(answer == 'y' || answer == 'Y')
                 {
-                    user.searchReview(reviews);     
+                    user.searchReview(reviews);  
                 }
                 else
                 {
@@ -544,7 +565,7 @@ public class App
                     if (added) 
                     {
                         reviewData.updateReview(reviews);
-                        String[] items = {"U","P","D","A","T","I","N","G",".",".","."};
+                        String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
                     
                             for (String item : items) 
                             {

@@ -22,15 +22,28 @@ public class User
         return ("username: " + userName + "\npassword: " + userID);
     }
 
+    public void totalProduct(LinkedList products){
+    
+            Object data = products.getFirst();
+            int count = 0;
+    
+            while(data != null){
+                Product product = (Product) data;
+                count++;
+                data = products.getNext();
+                
+            }
+            System.out.println("\nTotal Product : " + count);
+            System.out.println("==================");
+        }
+    
     public void displayProduct(LinkedList products) {
         
-        Object data = products.getFirst();;
-
-        System.out.println("==============================================================");
-        System.out.println("                        Product list                          ");
-        System.out.println("==============================================================");
+        Object data = products.getFirst();    
+        
         while (data != null) {
             Product product = (Product) data;
+
             System.out.println("\n" + "Product ID   : " + product.getProductID() + "\n"+ "Name         : " +  product.getProductName() +
                               "\n" + "Brand        : " + product.getProductBrand() + "\n" + "Price        : " + product.getProductPrice() + "\n" 
                                + "Availability : " + product.getProductAvailability());
@@ -63,12 +76,17 @@ public class User
                     }
         System.out.println("\nRESULT OF SEARCH");
         System.out.println("====================");
-
+        
         while(data != null){
             product = (Product) data;
-
-
+            int count = 0;
+            
+            
             if(product.getProductName().equalsIgnoreCase(productName)){
+                
+                count++;
+                System.out.println("\nProduct found : "+ count);
+                System.out.println("\n==================");
                 System.out.println("\n" + "Product ID   : " + product.getProductID() + "\n"+ "Name         : " +  product.getProductName() +
                                    "\n" + "Brand        : " + product.getProductBrand() + "\n" + "Price        : " + product.getProductPrice() + "\n" 
                                         + "Availability : " + product.getProductAvailability());
@@ -81,13 +99,19 @@ public class User
     public void displayReview(Queue reviews) {
         Queue temp = new Queue();
         Object data;
+        int count = 0;
 
         System.out.println("==============================================================");
         System.out.println("                         Review List                          ");
         System.out.println("==============================================================");
+        
         while (!reviews.isEmpty()) {
             data = reviews.dequeue();
             Review review = (Review) data;
+
+            count++;
+            System.out.println("TOTAL REVIEW : " + count);
+            System.out.println("==============");
             System.out.println("\n" + "Product Name : " +review.getProductName() + "\n"+ "Type         : " +  review.getReviewType() +
                               "\n" + "Title        : " +review.getReviewTitle() + "\n" + "Rating       : " + review.getRating() + "/5" + "\n" 
                                + "Description  : \n" +review.getReviewDescription());
@@ -109,6 +133,7 @@ public class User
 
         Queue temp = new Queue();
         Object data;
+        int count = 0;
 
         String[] items = {"\nS","E","A","R","C","H","I","N","G",".",".",".\n"};
                 
@@ -132,6 +157,9 @@ public class User
 
             if(review.getProductName().equalsIgnoreCase(productName))
             {
+                count++;
+                System.out.println("TOTAL REVIEW FOUND : " + count);
+                System.out.println("=====================");
                 System.out.println("\nProduct Name : " +review.getProductName() + "\n"+ "Review Type  : " +  review.getReviewType() +
                                    "\n" + "Title        : " +review.getReviewTitle() + "\n" + "Rating       : " + review.getRating() + "/5" + "\n" +
                                    "Description  : \n" +review.getReviewDescription());
