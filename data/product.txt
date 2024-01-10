@@ -9,7 +9,7 @@ F1201,Roti Canai,KAWAN,15.00,Available
 F1202,Roti Chapatti,KAWAN,6.00,Out of Stock
 F1203,Mozzarella Cheese Sticks,KAWAN,25.00,Available
 F1204,Vadai,KAWAN,7.50,Out of Stock
-F1205,Chicken Rendang,KAWAN,7.60,Available
+F1205,Chicken Rendang Bun,KAWAN,7.60,Available
 B2011,Green Tea Latte,BOH,14.50,Available
 B2012,3 In 1 Vanilla Tea Less Sugar,BOH,12.00,Available
 B2013,3 In 1 Original Tea Less Sugar,BOH,10.50,Available

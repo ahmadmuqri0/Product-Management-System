@@ -58,41 +58,4 @@ public class FileReview {
         }
     }
 
-    public void addReviewToFile(Review newReview) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath, true))) {
-            String entry = newReview.toString();
-            writer.println(entry);
-        } catch (IOException e) {
-            System.out.println("Error writing to review file: " + e.getMessage());
-        }
-    }
-
-    // public void removeReviewFromFile(String productName){
-    //     Queue reviews = loadReview();
-    //     Queue temp = new Queue();
-    //     Object data;
-
-    //     while(!reviews.isEmpty()){
-    //         data = reviews.dequeue();
-    //         Review review = (Review) data;
-
-    //         if(!review.getProductName().equalsIgnoreCase(productName)){
-    //             temp.enqueue(review);
-    //         }
-    //     }
-
-    //     try(PrintWriter writer = new PrintWriter(new FileWriter(filePath))){
-    //         while (!temp.isEmpty()){
-    //             data = temp.dequeue();
-    //             Review review = (Review) data;
-    //             String entry = review.toString();
-    //             writer.println(entry);
-    //         }
-    //     }
-    //     catch (IOException e){
-    //         System.out.println("Error writing to review file: " + e.getMessage());
-    //     }
-
-    //     System.out.println("Reviews for product '" + productName + "' removed successfully.");
-    // }
 }
