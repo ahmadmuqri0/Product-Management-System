@@ -28,10 +28,8 @@ public class User
             int count = 0;
     
             while(data != null){
-                Product product = (Product) data;
                 count++;
                 data = products.getNext();
-                
             }
             System.out.println("\nTotal Product : " + count);
             System.out.println("-------------------");
@@ -52,226 +50,220 @@ public class User
     } 
     
     public void searchProductName(LinkedList products){
-        Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Enter product name");
+            String productName = sc.nextLine();
 
-        System.out.println("Enter product name");
-        String productName = sc.nextLine();
+            Product product = new Product(productName,"","",0.0,"");
+            Object data = products.getFirst();
 
-        Product product = new Product(productName,"","",0.0,"");
-        Object data = products.getFirst();
-
-        String[] items = {"\nS","E","A","R","C","H","I","N","G",".",".",".\n"};
-            
-                    for (String item : items) 
-                    {
-                        System.out.print(item);
-
-                        try {
-                            Thread.sleep(150);
-                        }
-                        catch (InterruptedException e) 
+            String[] items = {"\nS","E","A","R","C","H","I","N","G",".",".",".\n"};
+                
+                        for (String item : items) 
                         {
-                            e.printStackTrace();
+                            System.out.print(item);
+
+                            try {
+                                Thread.sleep(150);
+                            }
+                            catch (InterruptedException e) 
+                            {
+                                e.printStackTrace();
+                            }
                         }
-                    }
-        System.out.println("\nRESULT OF SEARCH");
-        System.out.println("====================");
-        
-        int count = 0;
-
-        while(data != null){
-            product = (Product) data;
+            System.out.println("\nRESULT OF SEARCH");
+            System.out.println("====================");
             
-            if(product.getProductName().equalsIgnoreCase(productName)){ 
-                count++;
-            }
-            data = products.getNext();
-        }
-        
-        System.out.println("\nTotal Product Found : "+ count);
-        System.out.println("=======================");
+            int count = 0;
 
-        data = products.getFirst();
-        
-        while(data != null){
-            product = (Product) data;
+            while(data != null){
+                product = (Product) data;
+                
+                if(product.getProductName().equalsIgnoreCase(productName)){ 
+                    count++;
+                }
+                data = products.getNext();
+            }
+            
+            System.out.println("\nTotal Product Found : "+ count);
+            System.out.println("=======================");
+
+            data = products.getFirst();
+            
+            while(data != null){
+                product = (Product) data;
   
-            if(product.getProductName().equalsIgnoreCase(productName)){
+                if(product.getProductName().equalsIgnoreCase(productName)){
 
-                System.out.println("\n" + "Product ID   : " + product.getProductID() + "\n"+ "Name         : " +  product.getProductName() +
-                                   "\n" + "Brand        : " + product.getProductBrand() + "\n" + "Price        : " + product.getProductPrice() + "\n" 
-                                        + "Availability : " + product.getProductAvailability());
+                    System.out.println("\n" + "Product ID   : " + product.getProductID() + "\n"+ "Name         : " +  product.getProductName() +
+                                       "\n" + "Brand        : " + product.getProductBrand() + "\n" + "Price        : " + product.getProductPrice() + "\n" 
+                                            + "Availability : " + product.getProductAvailability());
+                }
+                data = products.getNext();
             }
-            data = products.getNext();
         }
-        sc.close();
     }
 
     public void searchProductID(LinkedList products){
-        Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Enter product ID");
+            String productID = sc.nextLine();
 
-        System.out.println("Enter product ID");
-        String productID = sc.nextLine();
-
-        Product product = new Product(productID,"","",0.0,"");
-        Object data = products.getFirst();
-
-        String[] items = {"\nS","E","A","R","C","H","I","N","G",".",".",".\n"};
-            
-                    for (String item : items) 
-                    {
-                        System.out.print(item);
-
-                        try {
-                            Thread.sleep(150);
-                        }
-                        catch (InterruptedException e) 
+            String[] items = {"\nS","E","A","R","C","H","I","N","G",".",".",".\n"};
+                
+                        for (String item : items) 
                         {
-                            e.printStackTrace();
+                            System.out.print(item);
+
+                            try {
+                                Thread.sleep(150);
+                            }
+                            catch (InterruptedException e) 
+                            {
+                                e.printStackTrace();
+                            }
                         }
-                    }
-        System.out.println("\nRESULT OF SEARCH");
-        System.out.println("====================");
+            System.out.println("\nRESULT OF SEARCH");
+            System.out.println("====================");
 
-        int count = 0;
+            int count = 0;
+            Object data = products.getFirst();
 
-        while(data != null){
-            product = (Product) data;
-            
-            if(product.getProductID().equalsIgnoreCase(productID)){ 
-                count++;
+            while(data != null){
+                Product product = (Product) data;
+                
+                if(product.getProductID().equalsIgnoreCase(productID)){ 
+                    count++;
+                }
+                data = products.getNext();
             }
-            data = products.getNext();
-        }
-        
-        System.out.println("\nTotal Product Found : "+ count);
-        System.out.println("=======================");
-
-        data = products.getFirst();
-        
-        while(data != null){
-            product = (Product) data;           
             
-            if(product.getProductID().equalsIgnoreCase(productID)){
+            System.out.println("\nTotal Product Found : "+ count);
+            System.out.println("=======================");
 
-                System.out.println("\n" + "Product ID   : " + product.getProductID() + "\n"+ "Name         : " +  product.getProductName() +
-                                   "\n" + "Brand        : " + product.getProductBrand() + "\n" + "Price        : " + product.getProductPrice() + "\n" 
-                                        + "Availability : " + product.getProductAvailability());
+            data = products.getFirst();
+            
+            while(data != null){
+                Product product = (Product) data;           
+                
+                if(product.getProductID().equalsIgnoreCase(productID)){
+
+                    System.out.println("\n" + "Product ID   : " + product.getProductID() + "\n"+ "Name         : " +  product.getProductName() +
+                                       "\n" + "Brand        : " + product.getProductBrand() + "\n" + "Price        : " + product.getProductPrice() + "\n" 
+                                            + "Availability : " + product.getProductAvailability());
+                }
+                data = products.getNext();
             }
-            data = products.getNext();
         }
-        sc.close();
     }
 
     public void searchProductBrand(LinkedList products){
-        Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Enter product ID");
+            String productBrand = sc.nextLine();
 
-        System.out.println("Enter product ID");
-        String productBrand = sc.nextLine();
+            Product product = new Product("","",productBrand,0.0,"");
+            Object data = products.getFirst();
 
-        Product product = new Product("","",productBrand,0.0,"");
-        Object data = products.getFirst();
-
-        String[] items = {"\nS","E","A","R","C","H","I","N","G",".",".",".\n"};
-            
-                    for (String item : items) 
-                    {
-                        System.out.print(item);
-
-                        try {
-                            Thread.sleep(150);
-                        }
-                        catch (InterruptedException e) 
-                        {
-                            e.printStackTrace();
-                        }
-                    }
-        System.out.println("\nRESULT OF SEARCH");
-        System.out.println("====================");
-
-        int count = 0;
-
-        while(data != null){
-            product = (Product) data;
-            
-            if(product.getProductBrand().equalsIgnoreCase(productBrand)){ 
-                count++;
-            }
-            data = products.getNext();
-        }
-        
-        System.out.println("\nTotal Product Found : "+ count);
-        System.out.println("=======================");
-
-        data = products.getFirst();
-        
-        while(data != null){
-            product = (Product) data;
+            String[] items = {"\nS","E","A","R","C","H","I","N","G",".",".",".\n"};
                 
-            if(product.getProductBrand().equalsIgnoreCase(productBrand)){
+                        for (String item : items) 
+                        {
+                            System.out.print(item);
 
-                System.out.println("\n" + "Product ID   : " + product.getProductID() + "\n"+ "Name         : " +  product.getProductName() +
-                                   "\n" + "Brand        : " + product.getProductBrand() + "\n" + "Price        : " + product.getProductPrice() + "\n" 
-                                        + "Availability : " + product.getProductAvailability());
+                            try {
+                                Thread.sleep(150);
+                            }
+                            catch (InterruptedException e) 
+                            {
+                                e.printStackTrace();
+                            }
+                        }
+            System.out.println("\nRESULT OF SEARCH");
+            System.out.println("====================");
+
+            int count = 0;
+
+            while(data != null){
+                product = (Product) data;
+                
+                if(product.getProductBrand().equalsIgnoreCase(productBrand)){ 
+                    count++;
+                }
+                data = products.getNext();
             }
-            data = products.getNext();
+            
+            System.out.println("\nTotal Product Found : "+ count);
+            System.out.println("=======================");
+
+            data = products.getFirst();
+            
+            while(data != null){
+                product = (Product) data;
+                    
+                if(product.getProductBrand().equalsIgnoreCase(productBrand)){
+
+                    System.out.println("\n" + "Product ID   : " + product.getProductID() + "\n"+ "Name         : " +  product.getProductName() +
+                                       "\n" + "Brand        : " + product.getProductBrand() + "\n" + "Price        : " + product.getProductPrice() + "\n" 
+                                            + "Availability : " + product.getProductAvailability());
+                }
+                data = products.getNext();
+            }
         }
-        sc.close();
     }
 
     public void searchProductPrice(LinkedList products){
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Enter product price");
-        double productPrice = sc.nextDouble();
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Enter product price");
+            double productPrice = sc.nextDouble();
    
-        Product product = new Product("","","",productPrice,"");
-        Object data = products.getFirst();
+            Product product = new Product("","","",productPrice,"");
+            Object data = products.getFirst();
 
-        String[] items = {"\nS","E","A","R","C","H","I","N","G",".",".",".\n"};
-            
-                    for (String item : items) 
-                    {
-                        System.out.print(item);
-
-                        try {
-                            Thread.sleep(150);
-                        }
-                        catch (InterruptedException e) 
+            String[] items = {"\nS","E","A","R","C","H","I","N","G",".",".",".\n"};
+                
+                        for (String item : items) 
                         {
-                            e.printStackTrace();
+                            System.out.print(item);
+
+                            try {
+                                Thread.sleep(150);
+                            }
+                            catch (InterruptedException e) 
+                            {
+                                e.printStackTrace();
+                            }
                         }
-                    }
-        System.out.println("\nRESULT OF SEARCH");
-        System.out.println("====================");
-        
-        int count = 0;
-
-        while(data != null){
-            product = (Product) data;
+            System.out.println("\nRESULT OF SEARCH");
+            System.out.println("====================");
             
-            if(product.getProductPrice() == productPrice){ 
-                count++;
+            int count = 0;
+
+            while(data != null){
+                product = (Product) data;
+                
+                if(product.getProductPrice() == productPrice){ 
+                    count++;
+                }
+                data = products.getNext();
             }
-            data = products.getNext();
-        }
 
-        System.out.println("\nTotal Product Found : "+ count);
-        System.out.println("------------------------");
+            System.out.println("\nTotal Product Found : "+ count);
+            System.out.println("------------------------");
 
-        data = products.getFirst();
+            data = products.getFirst();
 
-        while(data != null){
-            product = (Product) data;
+            while(data != null){
+                product = (Product) data;
 
-            if(product.getProductPrice() == productPrice){
-                System.out.println("\n" + "Product ID   : " + product.getProductID() + "\n"+ "Name         : " +  product.getProductName() +
-                "\n" + "Brand        : " + product.getProductBrand() + "\n" + "Price        : " + product.getProductPrice() + "\n" 
-                + "Availability : " + product.getProductAvailability());
+                if(product.getProductPrice() == productPrice){
+                    System.out.println("\n" + "Product ID   : " + product.getProductID() + "\n"+ "Name         : " +  product.getProductName() +
+                    "\n" + "Brand        : " + product.getProductBrand() + "\n" + "Price        : " + product.getProductPrice() + "\n" 
+                    + "Availability : " + product.getProductAvailability());
+                }
+                data = products.getNext();
             }
-            data = products.getNext();
         }
-        sc.close();
     }
     
     public void totalReview(Queue reviews){
@@ -318,239 +310,236 @@ public class User
 
     public void searchReviewName(Queue reviews)
     {
-        Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("\nEnter product name to search for review");
+            String productName = sc.nextLine();
 
-        System.out.println("\nEnter product name to search for review");
-        String productName = sc.nextLine();
+            Queue temp = new Queue();
+            Queue display = new Queue();
+            boolean found = false;
+            Object data;
+            int count = 0;
 
-        Queue temp = new Queue();
-        Queue display = new Queue();
-        boolean found = false;
-        Object data;
-        int count = 0;
-
-        String[] items = {"\nS","E","A","R","C","H","I","N","G",".",".",".\n"};
-                
-        for (String item : items) 
-        {
-            System.out.print(item);
-
-            try 
+            String[] items = {"\nS","E","A","R","C","H","I","N","G",".",".",".\n"};
+                    
+            for (String item : items) 
             {
-                Thread.sleep(150);
+                System.out.print(item);
+
+                try 
+                {
+                    Thread.sleep(150);
+                }
+                catch (InterruptedException e) 
+                {
+                    e.printStackTrace();
+                }
             }
-            catch (InterruptedException e) 
+
+            while(!reviews.isEmpty())
             {
-                e.printStackTrace();
-            }
-        }
-
-        while(!reviews.isEmpty())
-        {
-            data = reviews.dequeue();
-            Review review = (Review) data;
-
-            if(review.getProductName().equalsIgnoreCase(productName))
-            {
-                display.enqueue(review);
-                found = true;
-                count++;
-            }
-            temp.enqueue(review);
-        }
-        
-        System.out.println("Total Review Found : " + count);
-        System.out.println("----------------------");
-
-        while(!temp.isEmpty())
-        {
-            data = temp.dequeue();
-            reviews.enqueue(data);
-        }
-
-        if (found)
-        {
-            while (!display.isEmpty()) {
-
-                data = display.dequeue();
+                data = reviews.dequeue();
                 Review review = (Review) data;
 
-                System.out.println(
-                    "\nProduct Name : " +review.getProductName() + "\n"+ "Review Type  : " +  review.getReviewType() +
-                    "\n" + "Title        : " +review.getReviewTitle() + "\n" + "Rating       : " + review.getRating() + "/5" + "\n" +
-                    "Description  : \n" +review.getReviewDescription()
-                );
+                if(review.getProductName().equalsIgnoreCase(productName))
+                {
+                    display.enqueue(review);
+                    found = true;
+                    count++;
+                }
+                temp.enqueue(review);
+            }
+            
+            System.out.println("Total Review Found : " + count);
+            System.out.println("----------------------");
+
+            while(!temp.isEmpty())
+            {
+                data = temp.dequeue();
+                reviews.enqueue(data);
+            }
+
+            if (found)
+            {
+                while (!display.isEmpty()) {
+
+                    data = display.dequeue();
+                    Review review = (Review) data;
+
+                    System.out.println(
+                        "\nProduct Name : " +review.getProductName() + "\n"+ "Review Type  : " +  review.getReviewType() +
+                        "\n" + "Title        : " +review.getReviewTitle() + "\n" + "Rating       : " + review.getRating() + "/5" + "\n" +
+                        "Description  : \n" +review.getReviewDescription()
+                    );
+                }
+            }
+            else
+            {
+                System.out.println("\nThe product not found!!!");
+            }
+
+            while(!temp.isEmpty())
+            {
+                data = temp.dequeue();
+                reviews.enqueue(data);
             }
         }
-        else
-        {
-            System.out.println("\nThe product not found!!!");
-        }
-
-        while(!temp.isEmpty())
-        {
-            data = temp.dequeue();
-            reviews.enqueue(data);
-        }
-        sc.close();
     }
 
     public void searchReviewType(Queue reviews)
     {
-        Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("\nEnter review type ( Bad / Good )");
+            String reviewType = sc.nextLine();
 
-        System.out.println("\nEnter review type ( Bad / Good )");
-        String reviewType = sc.nextLine();
+            Queue temp = new Queue();
+            Queue display = new Queue();
+            boolean found = false;
+            Object data;
+            int count = 0;
 
-        Queue temp = new Queue();
-        Queue display = new Queue();
-        boolean found = false;
-        Object data;
-        int count = 0;
-
-        String[] items = {"\nS","E","A","R","C","H","I","N","G",".",".",".\n"};
-                
-        for (String item : items) 
-        {
-            System.out.print(item);
-
-            try 
+            String[] items = {"\nS","E","A","R","C","H","I","N","G",".",".",".\n"};
+                    
+            for (String item : items) 
             {
-                Thread.sleep(150);
+                System.out.print(item);
+
+                try 
+                {
+                    Thread.sleep(150);
+                }
+                catch (InterruptedException e) 
+                {
+                    e.printStackTrace();
+                }
             }
-            catch (InterruptedException e) 
+
+            while(!reviews.isEmpty())
             {
-                e.printStackTrace();
-            }
-        }
-
-        while(!reviews.isEmpty())
-        {
-            data = reviews.dequeue();
-            Review review = (Review) data;
-
-            if(review.getReviewType().equalsIgnoreCase(reviewType))
-            {
-                display.enqueue(review);
-                found = true;
-                count++;
-            }
-            temp.enqueue(review);
-        }
-        
-        System.out.println("Total Review Found : " + count);
-        System.out.println("--------------------=");
-
-        while(!temp.isEmpty())
-        {
-            data = temp.dequeue();
-            reviews.enqueue(data);
-        }
-
-        if (found)
-        {
-            while (!display.isEmpty()) {
-
-                data = display.dequeue();
+                data = reviews.dequeue();
                 Review review = (Review) data;
 
-                System.out.println(
-                    "\nProduct Name : " +review.getProductName() + "\n"+ "Review Type  : " +  review.getReviewType() +
-                    "\n" + "Title        : " +review.getReviewTitle() + "\n" + "Rating       : " + review.getRating() + "/5" + "\n" +
-                    "Description  : \n" +review.getReviewDescription()
-                );
+                if(review.getReviewType().equalsIgnoreCase(reviewType))
+                {
+                    display.enqueue(review);
+                    found = true;
+                    count++;
+                }
+                temp.enqueue(review);
+            }
+            
+            System.out.println("Total Review Found : " + count);
+            System.out.println("--------------------=");
+
+            while(!temp.isEmpty())
+            {
+                data = temp.dequeue();
+                reviews.enqueue(data);
+            }
+
+            if (found)
+            {
+                while (!display.isEmpty()) {
+
+                    data = display.dequeue();
+                    Review review = (Review) data;
+
+                    System.out.println(
+                        "\nProduct Name : " +review.getProductName() + "\n"+ "Review Type  : " +  review.getReviewType() +
+                        "\n" + "Title        : " +review.getReviewTitle() + "\n" + "Rating       : " + review.getRating() + "/5" + "\n" +
+                        "Description  : \n" +review.getReviewDescription()
+                    );
+                }
+            }
+            else
+            {
+                System.out.println("\nThe product not found!!!");
+            }
+
+            while(!temp.isEmpty())
+            {
+                data = temp.dequeue();
+                reviews.enqueue(data);
             }
         }
-        else
-        {
-            System.out.println("\nThe product not found!!!");
-        }
-
-        while(!temp.isEmpty())
-        {
-            data = temp.dequeue();
-            reviews.enqueue(data);
-        }
-        sc.close();
     }
 
     public void searchReviewRating(Queue reviews)
     {
-        Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("\nEnter review rating (1-5)");
+            int rate = sc.nextInt();
 
-        System.out.println("\nEnter review rating (1-5)");
-        int rate = sc.nextInt();
+            Queue temp = new Queue();
+            Queue display = new Queue();
+            boolean found = false;
+            Object data;
+            int count = 0;
 
-        Queue temp = new Queue();
-        Queue display = new Queue();
-        boolean found = false;
-        Object data;
-        int count = 0;
-
-        String[] items = {"\nS","E","A","R","C","H","I","N","G",".",".",".\n"};
-                
-        for (String item : items) 
-        {
-            System.out.print(item);
-
-            try 
+            String[] items = {"\nS","E","A","R","C","H","I","N","G",".",".",".\n"};
+                    
+            for (String item : items) 
             {
-                Thread.sleep(150);
+                System.out.print(item);
+
+                try 
+                {
+                    Thread.sleep(150);
+                }
+                catch (InterruptedException e) 
+                {
+                    e.printStackTrace();
+                }
             }
-            catch (InterruptedException e) 
+
+            while(!reviews.isEmpty())
             {
-                e.printStackTrace();
-            }
-        }
-
-        while(!reviews.isEmpty())
-        {
-            data = reviews.dequeue();
-            Review review = (Review) data;
-
-            if(review.getRating() == rate)
-            {
-                display.enqueue(review);
-                found = true;
-                count++;
-            }
-            temp.enqueue(review);
-        }
-        
-        System.out.println("Total Review Found : " + count);
-        System.out.println("---------------------");
-
-        while(!temp.isEmpty())
-        {
-            data = temp.dequeue();
-            reviews.enqueue(data);
-        }
-
-        if (found)
-        {
-            while (!display.isEmpty()) {
-
-                data = display.dequeue();
+                data = reviews.dequeue();
                 Review review = (Review) data;
 
-                System.out.println(
-                    "\nProduct Name : " +review.getProductName() + "\n"+ "Review Type  : " +  review.getReviewType() +
-                    "\n" + "Title        : " +review.getReviewTitle() + "\n" + "Rating       : " + review.getRating() + "/5" + "\n" +
-                    "Description  : \n" +review.getReviewDescription()
-                );
+                if(review.getRating() == rate)
+                {
+                    display.enqueue(review);
+                    found = true;
+                    count++;
+                }
+                temp.enqueue(review);
+            }
+            
+            System.out.println("Total Review Found : " + count);
+            System.out.println("---------------------");
+
+            while(!temp.isEmpty())
+            {
+                data = temp.dequeue();
+                reviews.enqueue(data);
+            }
+
+            if (found)
+            {
+                while (!display.isEmpty()) {
+
+                    data = display.dequeue();
+                    Review review = (Review) data;
+
+                    System.out.println(
+                        "\nProduct Name : " +review.getProductName() + "\n"+ "Review Type  : " +  review.getReviewType() +
+                        "\n" + "Title        : " +review.getReviewTitle() + "\n" + "Rating       : " + review.getRating() + "/5" + "\n" +
+                        "Description  : \n" +review.getReviewDescription()
+                    );
+                }
+            }
+            else
+            {
+                System.out.println("\nThe product not found!!!");
+            }
+
+            while(!temp.isEmpty())
+            {
+                data = temp.dequeue();
+                reviews.enqueue(data);
             }
         }
-        else
-        {
-            System.out.println("\nThe product not found!!!");
-        }
-
-        while(!temp.isEmpty())
-        {
-            data = temp.dequeue();
-            reviews.enqueue(data);
-        }
-        sc.close();
     }
 
     public boolean addReview(Review review, Queue reviews){

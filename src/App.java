@@ -56,7 +56,7 @@ public class App
             System.out.println("||                                                              ||");
             System.out.println("==================================================================");
             
-            System.out.println("\nSelect prefered category : ");
+            System.out.print("\nSelect prefered category : ");
             int option = sc.nextInt();
 
             if (option == 1) {
@@ -402,7 +402,7 @@ public class App
             System.out.println("                   [4] Log Out                         ");
             System.out.println("    ===================================================");
 
-            System.out.println("\nSelect prefered category :");
+            System.out.print("\nSelect prefered category :");
             int option = sc.nextInt();
             clearConsole();
 
