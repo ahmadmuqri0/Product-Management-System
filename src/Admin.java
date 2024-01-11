@@ -191,7 +191,6 @@ public class Admin {
         else {
             System.out.println("Product name not found or no update performed.");
         }
-        sc.close();
     }
 
     public void updateProductID(LinkedList products) {
@@ -240,12 +239,14 @@ public class Admin {
                     e.printStackTrace();
                 }
             }
+            System.out.println("Successfully updated");
+            return;
+
         }
         
         else {
             System.out.println("Product name not found or no update performed.");
         }
-        sc.close();
     }
 
     public void updateProductBrand(LinkedList products) {
@@ -299,7 +300,6 @@ public class Admin {
         else {
             System.out.println("Product name not found or no update performed.");
         }
-        sc.close();
     }
 
     public void updateProductPrice(LinkedList products) {
@@ -352,7 +352,6 @@ public class Admin {
         else {
             System.out.println("Product name not found or no update performed.");
         }
-        sc.close();
     }
     
     public void updateProductAvailability(LinkedList products) {
@@ -405,7 +404,6 @@ public class Admin {
         else {
             System.out.println("Product name not found or no update performed.");
         }
-        sc.close();
     }
     
 }

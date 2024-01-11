@@ -104,7 +104,6 @@ public class User
             }
             data = products.getNext();
         }
-        sc.close();
     }
 
     public void searchProductID(LinkedList products){
@@ -157,7 +156,6 @@ public class User
             }
             data = products.getNext();
         }
-        sc.close();
     }
 
     public void searchProductBrand(LinkedList products) {
@@ -212,7 +210,6 @@ public class User
             }
             data = products.getNext();
         }
-        sc.close();
     }
 
     public void searchProductPrice(LinkedList products){
@@ -266,7 +263,6 @@ public class User
             }
             data = products.getNext();
         }
-        sc.close();
     }
     
     public void totalReview(Queue reviews){
@@ -387,7 +383,6 @@ public class User
             data = temp.dequeue();
             reviews.enqueue(data);
         }
-        sc.close();
     }
 
     public void searchReviewType(Queue reviews)
@@ -465,7 +460,6 @@ public class User
             data = temp.dequeue();
             reviews.enqueue(data);
         }
-        sc.close();
     }
 
     public void searchReviewRating(Queue reviews)
@@ -543,7 +537,6 @@ public class User
             data = temp.dequeue();
             reviews.enqueue(data);
         }
-        sc.close();
     }
 
     public boolean addReview(Review review, Queue reviews){
@@ -602,7 +595,6 @@ public class User
         else {
             System.out.println("Product name not found or no update performed.");
         }
-        sc.close();
     }*/
 
 }
