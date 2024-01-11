@@ -48,16 +48,4 @@ public class FileProduct {
             System.out.println("Error writing to user file: " + e.getMessage());
         }
     }
-
-    // public void addProductToFile(Product product){
-    //     try(PrintWriter writer = new PrintWriter(new FileWriter(filePath, true))){
-    //         String entry = product.toString();
-    //         writer.println(entry);
-    //     }
-    //     catch (IOException e){
-    //         System.out.println("Error adding a new product: " + e.getMessage());
-    //     }
-    // }
-
-
 }
