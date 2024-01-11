@@ -188,7 +188,9 @@ public class App
             System.out.println("");
             System.out.println("    ---------------   [5] Remove Product   ---------------");
             System.out.println("");
-            System.out.println("    ---------------   [6] Log out          ---------------");
+            System.out.println("    ---------------   [6] Update Product   ---------------");
+            System.out.println("");
+            System.out.println("    ---------------   [7] Log out          ---------------");
             System.out.println("    ======================================================");
 
             System.out.println("\nSelect prefered category : ");
@@ -369,8 +371,45 @@ public class App
                 sleep(750);
                 clearConsole();
             }
+
+            else if(option == 6)
+            {
+                System.out.println("\n=============================");
+                System.out.println("           UPDATE           ");
+                System.out.println("=============================");
+                System.out.println("           [1] ID              ");
+                System.out.println("           [2] NAME            ");
+                System.out.println("           [3] BRAND           ");
+                System.out.println("           [4] PRICE           ");
+                System.out.println("           [5] AVAILABILITY  \n");
+
+                System.out.print("Enter update choice : ");
+                int choice = sc.nextInt();
+
+                if(choice == 1)
+                {
+                    admin.updateProductID(products);
+                }
+
+                else if (choice == 2)
+                {
+                    admin.updateProductName(products);
+                }
+                else if (choice == 3)
+                {
+                    admin.updateProductBrand(products);
+                }
+                else if (choice == 4)
+                {
+                    admin.updateProductPrice(products);
+                }
+                else if (choice == 5)
+                {
+                    admin.updateProductAvailability(products);
+                }
+            }
         
-            else if (option == 6) 
+            else if (option == 7) 
             {
                 clearConsole();
                 break;
@@ -399,7 +438,9 @@ public class App
             System.out.println("    ---------------------------------------------------");
             System.out.println("                   [3] Add Review                      ");
             System.out.println("    ---------------------------------------------------");
-            System.out.println("                   [4] Log Out                         ");
+            System.out.println("                   [4] Update Review                   ");
+            System.out.println("    ---------------------------------------------------");
+            System.out.println("                   [5] Log Out                         ");
             System.out.println("    ===================================================");
 
             System.out.print("\nSelect prefered category :");
@@ -538,6 +579,11 @@ public class App
             }
 
             else if (option == 4) 
+            {
+                
+            }
+            
+            else if (option == 5) 
             {
                 clearConsole();
                 break;
