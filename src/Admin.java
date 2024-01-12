@@ -70,19 +70,18 @@ public class Admin {
         return false;
     }
 
-    public boolean removeReview(Review review, Queue reviews){
+    public boolean removeReview(String name, Queue reviews){
 
         boolean found = false;
         Queue tempQueue = new Queue();
 
         while(!reviews.isEmpty()) {
             Review temp = (Review) reviews.dequeue();
-            if(!temp.getProductName().equalsIgnoreCase(review.getProductName())){
-                tempQueue.enqueue(temp);
-            }
-            else{
+            if(temp.getProductName().equalsIgnoreCase(name)) {
                 found = true;
+                continue;
             }
+            tempQueue.enqueue(temp);
         }
 
         while(!tempQueue.isEmpty()){
@@ -138,9 +137,7 @@ public class Admin {
         return false;
     }
     
-    String filePath = "data/product.txt";
-    FileProduct fileProduct = new FileProduct(filePath);
-
+    
     public void updateProductName(LinkedList products) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter product name to update : ");
@@ -155,40 +152,18 @@ public class Admin {
             Product product = (Product) data;
             if (product.getProductName().equalsIgnoreCase(productName)) {
                 product.setProductName(newProductName);
-                break;  // Assuming product names are unique, exit loop once found
+                updated = true;
+                break;
             }
             data = products.getNext();
         }
-    
-        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
-            data = products.getFirst();  // Reset the pointer
-            while (data != null) {
-                String entry = ((Product) data).toString();
-                writer.println(entry);
-                data = products.getNext();
-            }
-        } catch (IOException e) {
-            System.out.println("Error writing to user file : " + e.getMessage());
-        }
-
-        if (updated) {
-            String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
-
-            for (String item : items) 
-            {
-                System.out.print(item);
-
-                try {
-                    Thread.sleep(150);
-                }
-                catch (InterruptedException e) 
-                {
-                    e.printStackTrace();
-                }
-            }
-        }
         
-        else {
+        if (updated) {
+                System.out.println("Successfully updated");
+                return;
+            }
+        
+        else{
             System.out.println("Product name not found or no update performed.");
         }
     }
@@ -208,40 +183,15 @@ public class Admin {
             Product product = (Product) data;
             if (product.getProductID().equalsIgnoreCase(productID)) {
                 product.setProductID(newProductID);
-                break;  // Assuming product names are unique, exit loop once found
+                updated = true;
+                break;
             }
             data = products.getNext();
         }
     
-        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
-            data = products.getFirst();  // Reset the pointer
-            while (data != null) {
-                String entry = ((Product) data).toString();
-                writer.println(entry);
-                data = products.getNext();
-            }
-        } catch (IOException e) {
-            System.out.println("Error writing to user file : " + e.getMessage());
-        }
-
         if (updated) {
-            String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
-
-            for (String item : items) 
-            {
-                System.out.print(item);
-
-                try {
-                    Thread.sleep(150);
-                }
-                catch (InterruptedException e) 
-                {
-                    e.printStackTrace();
-                }
-            }
             System.out.println("Successfully updated");
             return;
-
         }
         
         else {
@@ -264,37 +214,15 @@ public class Admin {
             Product product = (Product) data;
             if (product.getProductID().equalsIgnoreCase(productID)) {
                 product.setBrand(newProductBrand);
-                break;  // Assuming product names are unique, exit loop once found
+                updated = true;
+                break;
             }
             data = products.getNext();
         }
-    
-        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
-            data = products.getFirst();  // Reset the pointer
-            while (data != null) {
-                String entry = ((Product) data).toString();
-                writer.println(entry);
-                data = products.getNext();
-            }
-        } catch (IOException e) {
-            System.out.println("Error writing to user file : " + e.getMessage());
-        }
 
         if (updated) {
-            String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
-
-            for (String item : items) 
-            {
-                System.out.print(item);
-
-                try {
-                    Thread.sleep(150);
-                }
-                catch (InterruptedException e) 
-                {
-                    e.printStackTrace();
-                }
-            }
+            System.out.println("Successfully updated");
+            return;
         }
         
         else {
@@ -316,37 +244,15 @@ public class Admin {
             Product product = (Product) data;
             if (product.getProductID().equalsIgnoreCase(productID)) {
                 product.setProductPrice(newProductPrice);
-                break;  // Assuming product names are unique, exit loop once found
+                updated = true;
+                break;
             }
             data = products.getNext();
         }
-    
-        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
-            data = products.getFirst();  // Reset the pointer
-            while (data != null) {
-                String entry = ((Product) data).toString();
-                writer.println(entry);
-                data = products.getNext();
-            }
-        } catch (IOException e) {
-            System.out.println("Error writing to user file : " + e.getMessage());
-        }
 
         if (updated) {
-            String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
-
-            for (String item : items) 
-            {
-                System.out.print(item);
-
-                try {
-                    Thread.sleep(150);
-                }
-                catch (InterruptedException e) 
-                {
-                    e.printStackTrace();
-                }
-            }
+            System.out.println("Successfully updated");
+            return;
         }
         
         else {
@@ -368,41 +274,19 @@ public class Admin {
             Product product = (Product) data;
             if (product.getProductID().equalsIgnoreCase(productID)) {
                 product.setProductAvailability(newProductAvailability);
-                break;  // Assuming product names are unique, exit loop once found
+                updated = true;
+                break;
             }
             data = products.getNext();
         }
-    
-        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
-            data = products.getFirst();  // Reset the pointer
-            while (data != null) {
-                String entry = ((Product) data).toString();
-                writer.println(entry);
-                data = products.getNext();
-            }
-        } catch (IOException e) {
-            System.out.println("Error writing to user file : " + e.getMessage());
-        }
 
         if (updated) {
-            String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
-
-            for (String item : items) 
-            {
-                System.out.print(item);
-
-                try {
-                    Thread.sleep(150);
-                }
-                catch (InterruptedException e) 
-                {
-                    e.printStackTrace();
-                }
-            }
+            System.out.println("\nSuccessfully updated");
+            return;
         }
         
         else {
-            System.out.println("Product name not found or no update performed.");
+            System.out.println("\nProduct name not found or no update performed.");
         }
     }
     

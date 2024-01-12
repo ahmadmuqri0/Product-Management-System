@@ -179,17 +179,11 @@ public class App
             System.out.println("                   Welcome to Admin Page!                 ");
             System.out.println("    ======================================================");
             System.out.println("    ---------------   [1] Add User         ---------------");
-            System.out.println("");
             System.out.println("    ---------------   [2] Remove User      ---------------");
-            System.out.println("");
             System.out.println("    ---------------   [3] Remove Review    ---------------");
-            System.out.println("");
             System.out.println("    ---------------   [4] Add Product      ---------------");
-            System.out.println("");
             System.out.println("    ---------------   [5] Remove Product   ---------------");
-            System.out.println("");
             System.out.println("    ---------------   [6] Update Product   ---------------");
-            System.out.println("");
             System.out.println("    ---------------   [7] Log out          ---------------");
             System.out.println("    ======================================================");
 
@@ -225,7 +219,7 @@ public class App
                 {
                     System.out.println("\nFailed to add the user.");
                 }  
-                sleep(750);
+                pause();
                 clearConsole();  
             }
 
@@ -245,11 +239,11 @@ public class App
                     userData.updateUser(users);
                     String[] items = {"\nU","P","D","A","T","I","N","G",".",".","."};
                     
-                            for (String item : items) 
-                            {
-                                System.out.print(item);
-                                sleep(550);
-                            }
+                    for (String item : items) 
+                    {
+                        System.out.print(item);
+                        sleep(150);
+                    }
                     
                     System.out.println("\nUser successfully removed");
                 }
@@ -257,7 +251,7 @@ public class App
                 {
                     System.out.println("\nFailed to remove the user.");
                 }
-                sleep(750);
+                pause();
                 clearConsole();
             }
 
@@ -267,25 +261,7 @@ public class App
                 sc.nextLine();
                 String productName = sc.nextLine();
 
-
-                Review obj = null;
-                Queue tempQueue = new Queue();
-
-                while (!reviews.isEmpty()) {
-                    obj = (Review) reviews.dequeue();
-                    if (obj.getProductName().equalsIgnoreCase(productName)) {
-                        tempQueue.enqueue(obj);
-                        break;
-                    }
-                    tempQueue.enqueue(obj);
-                }
-
-                while (!tempQueue.isEmpty()) {
-                    Object data = tempQueue.dequeue();
-                    reviews.enqueue(data);
-                }
-
-                boolean removed = admin.removeReview(obj, reviews);
+                boolean removed = admin.removeReview(productName, reviews);
                 
                 String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
             
@@ -303,7 +279,7 @@ public class App
                 else{
                     System.out.println("The review does not exist or invalid input.");
                 }  
-                sleep(750);
+                pause();
                 clearConsole();
             }
 
@@ -329,16 +305,16 @@ public class App
 
                 String[] items = {"U","P","D","A","T","I","N","G",".",".","."};
             
-                    for (String item : items) 
-                    {
-                        System.out.print(item);
-                        sleep(150);
-                    }
+                for (String item : items) 
+                {
+                    System.out.print(item);
+                    sleep(150);
+                }
 
                 admin.addProduct(product, products);
                 productData.updateProduct(products);
 
-                sleep(750);
+                pause();
                 clearConsole();
             }
             
@@ -352,11 +328,11 @@ public class App
                 
                 String[] items = {"U","P","D","A","T","I","N","G"," .",".",". "};
             
-                    for (String item : items) 
-                    {
-                        System.out.print(item);
-                        sleep(150);
-                    }
+                for (String item : items) 
+                {
+                    System.out.print(item);
+                    sleep(150);
+                }
 
                 boolean removed = admin.removeProduct(product, products);
 
@@ -368,7 +344,7 @@ public class App
                 else{
                     System.out.println("\nFailed to remove product or product does not exist");
                 }
-                sleep(750);
+                pause();
                 clearConsole();
             }
 
@@ -389,24 +365,101 @@ public class App
                 if(choice == 1)
                 {
                     admin.updateProductID(products);
+                    String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+                    for (String item : items) 
+                    {
+                        System.out.print(item);
+
+                        try {
+                            Thread.sleep(150);
+                        }
+                        catch (InterruptedException e) 
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                    productData.updateProduct(products);
                 }
 
                 else if (choice == 2)
                 {
                     admin.updateProductName(products);
+                    String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+                    for (String item : items) 
+                    {
+                        System.out.print(item);
+
+                        try {
+                            Thread.sleep(150);
+                        }
+                        catch (InterruptedException e) 
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                    productData.updateProduct(products);
                 }
                 else if (choice == 3)
                 {
                     admin.updateProductBrand(products);
+                    String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+                    for (String item : items) 
+                    {
+                        System.out.print(item);
+
+                        try {
+                            Thread.sleep(150);
+                        }
+                        catch (InterruptedException e) 
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                    productData.updateProduct(products);
                 }
                 else if (choice == 4)
                 {
                     admin.updateProductPrice(products);
+                    String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+                    for (String item : items) 
+                    {
+                        System.out.print(item);
+
+                        try {
+                            Thread.sleep(150);
+                        }
+                        catch (InterruptedException e) 
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                    productData.updateProduct(products);
                 }
                 else if (choice == 5)
                 {
                     admin.updateProductAvailability(products);
+                    String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+                    for (String item : items) 
+                    {
+                        System.out.print(item);
+
+                        try {
+                            Thread.sleep(150);
+                        }
+                        catch (InterruptedException e) 
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                    productData.updateProduct(products);
                 }
+                pause();
+                clearConsole();
             }
         
             else if (option == 7) 
@@ -480,7 +533,7 @@ public class App
                         user.searchProductName(products); 
                     }
                     else if(searchMethod == 3){
-                        user.searchProductBrand(products);
+                        user.searchProductBrand(products);                
                     }
                     else if(searchMethod == 4){
                         user.searchProductPrice(products);
@@ -490,7 +543,7 @@ public class App
                         System.out.println("Please enter option correctly");
                     }                   
                 }
-                sleep(150);
+                pause();
                 clearConsole();
             }
 
@@ -531,7 +584,7 @@ public class App
                         System.out.println("Please enter option correctly");
                     }
                 }
-                sleep(750);
+                pause();
                 clearConsole();
             }
 
@@ -574,13 +627,105 @@ public class App
                     System.out.println("\nFailed to add review.");
                 }
 
-                sleep(750);
+                pause();
                 clearConsole();
             }
 
             else if (option == 4) 
             {
-                
+                System.out.println("\n=============================");
+                System.out.println("         UPDATE REVIEW     ");
+                System.out.println("=============================");
+                System.out.println("         [1] TITLE           ");
+                System.out.println("         [2] TYPE           ");
+                System.out.println("         [3] DESCRIPTION          ");
+                System.out.println("         [4] RATING  \n");
+
+                System.out.print("Enter choice of update : ");
+                int choice = sc.nextInt();
+
+                if(choice == 1)
+                {
+                    user.updateReviewTitle(reviews);
+                    String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+                    for (String item : items) 
+                    {
+                        System.out.print(item);
+
+                        try {
+                            Thread.sleep(150);
+                        }
+                        catch (InterruptedException e) 
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                    reviewData.updateReview(reviews);
+                }
+                else if(choice == 2)
+                {
+                    user.updateReviewType(reviews);
+                    String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+                    for (String item : items) 
+                    {
+                        System.out.print(item);
+
+                        try {
+                            Thread.sleep(150);
+                        }
+                        catch (InterruptedException e) 
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                    reviewData.updateReview(reviews);
+                }
+                else if(choice == 3)
+                {
+                    user.updateReviewDescription(reviews);
+                    String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+                    for (String item : items) 
+                    {
+                        System.out.print(item);
+
+                        try {
+                            Thread.sleep(150);
+                        }
+                        catch (InterruptedException e) 
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                    reviewData.updateReview(reviews);
+                }
+                else if(choice == 4)
+                {
+                    user.updateReviewRating(reviews);
+                    String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+                    for (String item : items) 
+                    {
+                        System.out.print(item);
+
+                        try {
+                            Thread.sleep(150);
+                        }
+                        catch (InterruptedException e) 
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                    reviewData.updateReview(reviews);
+                }
+                else 
+                {
+                    System.out.println("Invalid choice. Enter choice correctly!");
+                }
+                pause();
+                clearConsole();
             }
             
             else if (option == 5) 
@@ -617,5 +762,11 @@ public class App
             {
                 e.printStackTrace();
             }
+    }
+
+    private static void pause(){
+        System.out.println("\nPress Enter to continue . . .");
+        try{System.in.read();}
+        catch(Exception e){}
     }
 }
