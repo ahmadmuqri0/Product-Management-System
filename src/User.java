@@ -25,6 +25,7 @@ public class User
         return ("username: " + userName + "\npassword: " + userID);
     }
 
+    
     public void totalProduct(LinkedList products) {
     
             Object data = products.getFirst();
@@ -103,6 +104,7 @@ public class User
                                         + "Availability : " + product.getProductAvailability());
             }
             data = products.getNext();
+
         }
     }
 
@@ -264,6 +266,7 @@ public class User
             data = products.getNext();
         }
     }
+    
     
     public void totalReview(Queue reviews){
         Queue temp = new Queue();
@@ -539,62 +542,127 @@ public class User
         }
     }
 
+    
     public boolean addReview(Review review, Queue reviews){
 
         reviews.enqueue(review);
         return true;
     }
 
-    /*public void updateReviewName(LinkedList products) {
+    
+    public void updateReviewTitle(Queue reviews) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter product name : ");
         String productName = sc.nextLine();
         System.out.println("Enter new review title : ");
         String newReviewTitle = sc.nextLine();
     
-        Object data = products.getFirst();
+        Object data = reviews.getFirst();
         boolean updated = false;
     
         while (data != null) {
             Review review = (Review) data;
             if (review.getProductName().equalsIgnoreCase(productName)) {
                 review.setReviewTitle(newReviewTitle);
-                break;  // Assuming product names are unique, exit loop once found
+                updated = true;
+                break; 
             }
-            data = products.getNext();
+            data = reviews.getNext();
         }
     
-        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
-            data = products.getFirst();  // Reset the pointer
-            while (data != null) {
-                String entry = ((Product) data).toString();
-                writer.println(entry);
-                data = products.getNext();
-            }
-        } catch (IOException e) {
-            System.out.println("Error writing to user file : " + e.getMessage());
-        }
-
         if (updated) {
-            String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
-
-            for (String item : items) 
-            {
-                System.out.print(item);
-
-                try {
-                    Thread.sleep(150);
-                }
-                catch (InterruptedException e) 
-                {
-                    e.printStackTrace();
-                }
-            }
+            System.out.println("Review successfully updated.");
         }
         
         else {
             System.out.println("Product name not found or no update performed.");
         }
-    }*/
+    }
 
+    public void updateReviewType(Queue reviews) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter product name : ");
+        String productName = sc.nextLine();
+        System.out.println("Enter new review type : ");
+        String newReviewType = sc.nextLine();
+    
+        Object data = reviews.getFirst();
+        boolean updated = false;
+    
+        while (data != null) {
+            Review review = (Review) data;
+            if (review.getProductName().equalsIgnoreCase(productName)) {
+                review.setReviewType(newReviewType);
+                updated = true;
+                break; 
+            }
+            data = reviews.getNext();
+        }
+    
+        if (updated) {
+            System.out.println("Review successfully updated.");
+        }
+        
+        else {
+            System.out.println("Product name not found or no update performed.");
+        }
+    }
+
+    public void updateReviewDescription(Queue reviews) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter product name : ");
+        String productName = sc.nextLine();
+        System.out.println("Enter new review description : ");
+        String newReviewDescription = sc.nextLine();
+    
+        Object data = reviews.getFirst();
+        boolean updated = false;
+    
+        while (data != null) {
+            Review review = (Review) data;
+            if (review.getProductName().equalsIgnoreCase(productName)) {
+                review.setReviewDescription(newReviewDescription);
+                updated = true;
+                break; 
+            }
+            data = reviews.getNext();
+        }
+    
+        if (updated) {
+            System.out.println("Review successfully updated.");
+        }
+        
+        else {
+            System.out.println("Product name not found or no update performed.");
+        }
+    }
+
+    public void updateReviewRating(Queue reviews) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter product name : ");
+        String productName = sc.nextLine();
+        System.out.println("Enter new review rating : ");
+        int newReviewRating = sc.nextInt();
+    
+        Object data = reviews.getFirst();
+        boolean updated = false;
+    
+        while (data != null) {
+            Review review = (Review) data;
+            if (review.getProductName().equalsIgnoreCase(productName)) {
+                review.setRating(newReviewRating);
+                updated = true;
+                break; 
+            }
+            data = reviews.getNext();
+        }
+    
+        if (updated) {
+            System.out.println("Review successfully updated.");
+        }
+        
+        else {
+            System.out.println("Product name not found or no update performed.");
+        }
+    }
 }
