@@ -33,6 +33,9 @@ public class App
                 System.out.print(item);
                 sleep(70);
             }
+
+            sleep(150);
+            clearConsole();
             
             
         while (true) 
