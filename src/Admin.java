@@ -1,6 +1,3 @@
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 
@@ -94,6 +91,7 @@ public class Admin {
     public boolean addProduct(Product product, LinkedList products){
     
         boolean found = false;
+        boolean add = false;
         Object data = products.getFirst();
 
         while(data != null){
@@ -104,13 +102,21 @@ public class Admin {
                 }
             }
             data = products.getNext();
+            add = true;
         }
             if (found) {
-                System.out.println("Product already exist!");
+                System.out.println("\nProduct already exist!");
                 return false;
             }
+
+            if(add){
+                products.insertAtBack(product);
+                System.out.println("\nProduct successfully added!");
+            }
+            else{
+                System.out.println("\nFailed to add product");
+            }
             
-        products.insertAtBack(product);
         return true;
     }
 
@@ -157,6 +163,21 @@ public class Admin {
             }
             data = products.getNext();
         }
+
+        String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+        for (String item : items) 
+        {
+            System.out.print(item);
+
+            try {
+                Thread.sleep(150);
+            }
+            catch (InterruptedException e) 
+            {
+                e.printStackTrace();
+            }
+        }
         
         if (updated) {
                 System.out.println("Successfully updated");
@@ -187,6 +208,21 @@ public class Admin {
                 break;
             }
             data = products.getNext();
+        }
+
+        String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+        for (String item : items) 
+        {
+            System.out.print(item);
+
+            try {
+                Thread.sleep(150);
+            }
+            catch (InterruptedException e) 
+            {
+                e.printStackTrace();
+            }
         }
     
         if (updated) {
@@ -220,6 +256,21 @@ public class Admin {
             data = products.getNext();
         }
 
+        String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+        for (String item : items) 
+        {
+            System.out.print(item);
+
+            try {
+                Thread.sleep(150);
+            }
+            catch (InterruptedException e) 
+            {
+                e.printStackTrace();
+            }
+        }
+
         if (updated) {
             System.out.println("Successfully updated");
             return;
@@ -250,6 +301,21 @@ public class Admin {
             data = products.getNext();
         }
 
+        String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+        for (String item : items) 
+        {
+            System.out.print(item);
+
+            try {
+                Thread.sleep(150);
+            }
+            catch (InterruptedException e) 
+            {
+                e.printStackTrace();
+            }
+        }
+
         if (updated) {
             System.out.println("Successfully updated");
             return;
@@ -278,6 +344,21 @@ public class Admin {
                 break;
             }
             data = products.getNext();
+        }
+
+        String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+        for (String item : items) 
+        {
+            System.out.print(item);
+
+            try {
+                Thread.sleep(150);
+            }
+            catch (InterruptedException e) 
+            {
+                e.printStackTrace();
+            }
         }
 
         if (updated) {
