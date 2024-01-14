@@ -514,7 +514,6 @@ public class App
                 System.out.println("\nDo you have specific product to find? (Y/N)");
                 char search = sc.next().charAt(0);
                 
-                
                 if(search == 'y' || search == 'Y')
                 {
                     System.out.println("\n=============================");
@@ -712,14 +711,7 @@ public class App
                     for (String item : items) 
                     {
                         System.out.print(item);
-
-                        try {
-                            Thread.sleep(150);
-                        }
-                        catch (InterruptedException e) 
-                        {
-                            e.printStackTrace();
-                        }
+                        sleep(150);
                     }
                     reviewData.updateReview(reviews);
                 }

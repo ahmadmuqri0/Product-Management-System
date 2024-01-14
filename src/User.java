@@ -275,9 +275,8 @@ public class User
      
         while(!reviews.isEmpty()){
            data = reviews.dequeue();
-           Review review = (Review) data;
            count++;
-           temp.enqueue(review);
+           temp.enqueue(data);
         }
      
         System.out.println("Total Reviews : " + count);
@@ -287,7 +286,7 @@ public class User
             data = temp.dequeue();
             reviews.enqueue(data);
         }
-     }
+    }
 
     public void displayReview(Queue reviews) {
         Queue temp = new Queue();
@@ -541,15 +540,13 @@ public class User
             reviews.enqueue(data);
         }
     }
-
-    
+  
     public boolean addReview(Review review, Queue reviews){
 
         reviews.enqueue(review);
         return true;
     }
-
-    
+  
     public void updateReviewTitle(Queue reviews) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter product name : ");
@@ -560,7 +557,7 @@ public class User
         Object data = reviews.getFirst();
         boolean updated = false;
     
-        while (data != null) {
+        while (!reviews.isEmpty()) {
             Review review = (Review) data;
             if (review.getProductName().equalsIgnoreCase(productName)) {
                 review.setReviewTitle(newReviewTitle);
@@ -589,7 +586,7 @@ public class User
         Object data = reviews.getFirst();
         boolean updated = false;
     
-        while (data != null) {
+        while (!reviews.isEmpty()) {
             Review review = (Review) data;
             if (review.getProductName().equalsIgnoreCase(productName)) {
                 review.setReviewType(newReviewType);
@@ -618,7 +615,7 @@ public class User
         Object data = reviews.getFirst();
         boolean updated = false;
     
-        while (data != null) {
+        while (!reviews.isEmpty()) {
             Review review = (Review) data;
             if (review.getProductName().equalsIgnoreCase(productName)) {
                 review.setReviewDescription(newReviewDescription);
@@ -647,7 +644,7 @@ public class User
         Object data = reviews.getFirst();
         boolean updated = false;
     
-        while (data != null) {
+        while (!reviews.isEmpty()) {
             Review review = (Review) data;
             if (review.getProductName().equalsIgnoreCase(productName)) {
                 review.setRating(newReviewRating);

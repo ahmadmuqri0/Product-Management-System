@@ -54,7 +54,7 @@ public class Review {
     }
 
     public String toString() {
-        return (this.productName + "|" + this.reviewTitle + "|" + this.reviewDescription + "|" + this.reviewType + "|" + this.rating);
+        return (this.productName + "|" + this.reviewTitle + "|" + this.reviewType + "|" + this.reviewDescription + "|" + this.rating);
     }
     
 }
