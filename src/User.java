@@ -1,6 +1,3 @@
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class User 
@@ -48,7 +45,8 @@ public class User
 
             System.out.println("\n" + "Product ID   : " + product.getProductID() + "\n"+ "Name         : " +  product.getProductName() +
                               "\n" + "Brand        : " + product.getProductBrand() + "\n" + "Price        : " + product.getProductPrice() + "\n" 
-                               + "Availability : " + product.getProductAvailability());
+                               + "Availability : " + product.getProductAvailability() + "\n" 
+                               + "-----------------------------------------------------------------------------------------------------------");
             data = products.getNext();
         }
     } 
@@ -90,7 +88,7 @@ public class User
         }
         
         System.out.println("\nTotal Product Found : "+ count);
-        System.out.println("=======================");
+        System.out.println("-----------------------");
 
         data = products.getFirst();
         
@@ -101,7 +99,8 @@ public class User
 
                 System.out.println("\n" + "Product ID   : " + product.getProductID() + "\n"+ "Name         : " +  product.getProductName() +
                                     "\n" + "Brand        : " + product.getProductBrand() + "\n" + "Price        : " + product.getProductPrice() + "\n" 
-                                        + "Availability : " + product.getProductAvailability());
+                                        + "Availability : " + product.getProductAvailability()+ "\n" 
+                                        + "-----------------------------------------------------------------------------------------------------------");
             }
             data = products.getNext();
 
@@ -143,7 +142,7 @@ public class User
         }
         
         System.out.println("\nTotal Product Found : "+ count);
-        System.out.println("=======================");
+        System.out.println("------------------------");
 
         data = products.getFirst();
         
@@ -154,7 +153,8 @@ public class User
 
                 System.out.println("\n" + "Product ID   : " + product.getProductID() + "\n"+ "Name         : " +  product.getProductName() +
                                     "\n" + "Brand        : " + product.getProductBrand() + "\n" + "Price        : " + product.getProductPrice() + "\n" 
-                                        + "Availability : " + product.getProductAvailability() + "\n");
+                                        + "Availability : " + product.getProductAvailability()+ "\n" 
+                                        + "-----------------------------------------------------------------------------------------------------------" + "\n");
             }
             data = products.getNext();
         }
@@ -162,7 +162,7 @@ public class User
 
     public void searchProductBrand(LinkedList products) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter product ID");
+        System.out.println("Enter product brand :");
         String productBrand = sc.nextLine();
 
         Product product = new Product("","",productBrand,0.0,"");
@@ -197,7 +197,7 @@ public class User
         }
         
         System.out.println("\nTotal Product Found : "+ count);
-        System.out.println("=======================");
+        System.out.println("-----------------------");
 
         data = products.getFirst();
         
@@ -208,7 +208,8 @@ public class User
 
                 System.out.println("\n" + "Product ID   : " + product.getProductID() + "\n"+ "Name         : " +  product.getProductName() +
                                     "\n" + "Brand        : " + product.getProductBrand() + "\n" + "Price        : " + product.getProductPrice() + "\n" 
-                                        + "Availability : " + product.getProductAvailability());
+                                        + "Availability : " + product.getProductAvailability()+ "\n"
+                                        + "-----------------------------------------------------------------------------------------------------------");
             }
             data = products.getNext();
         }
@@ -251,7 +252,7 @@ public class User
         }
 
         System.out.println("\nTotal Product Found : "+ count);
-        System.out.println("------------------------");
+        System.out.println("-----------------------");
 
         data = products.getFirst();
 
@@ -261,7 +262,8 @@ public class User
             if(product.getProductPrice() == productPrice){
                 System.out.println("\n" + "Product ID   : " + product.getProductID() + "\n"+ "Name         : " +  product.getProductName() +
                 "\n" + "Brand        : " + product.getProductBrand() + "\n" + "Price        : " + product.getProductPrice() + "\n" 
-                + "Availability : " + product.getProductAvailability());
+                + "Availability : " + product.getProductAvailability()+ "\n" 
+                + "-----------------------------------------------------------------------------------------------------------");
             }
             data = products.getNext();
         }
@@ -299,8 +301,9 @@ public class User
             System.out.println(
                     "\nProduct Name : " +review.getProductName() + "\n"+ "Title        : " +review.getReviewTitle() +
                     "\n" + "Review Type  : " +  review.getReviewType() + "\n" + "Rating       : " + review.getRating() + "/5" + "\n" +
-                    "Description  : \n" +review.getReviewDescription()
-                );
+                    "Description  : \n" +review.getReviewDescription()+ "\n" 
+                    + "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
             temp.enqueue(review);
         }
         while (!temp.isEmpty())
@@ -352,7 +355,10 @@ public class User
             temp.enqueue(review);
         }
         
-        System.out.println("Total Review Found : " + count);
+        System.out.println("\nRESULT OF SEARCH");
+        System.out.println("====================");
+
+        System.out.println("\nTotal Review Found : " + count);
         System.out.println("----------------------");
 
         while(!temp.isEmpty())
@@ -371,8 +377,8 @@ public class User
                 System.out.println(
                     "\nProduct Name : " +review.getProductName() + "\n"+ "Title        : " +review.getReviewTitle() +
                     "\n" + "Review Type  : " +  review.getReviewType() + "\n" + "Rating       : " + review.getRating() + "/5" + "\n" +
-                    "Description  : \n" +review.getReviewDescription()
-                );
+                    "Description  : \n" +review.getReviewDescription()+ "\n" 
+                    + "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             }
         }
         else
@@ -428,9 +434,12 @@ public class User
             }
             temp.enqueue(review);
         }
+
+        System.out.println("\nRESULT OF SEARCH");
+        System.out.println("====================");
         
-        System.out.println("Total Review Found : " + count);
-        System.out.println("--------------------=");
+        System.out.println("\nTotal Review Found : " + count);
+        System.out.println("---------------------");
 
         while(!temp.isEmpty())
         {
@@ -448,8 +457,8 @@ public class User
                 System.out.println(
                     "\nProduct Name : " +review.getProductName() + "\n"+ "Title        : " +review.getReviewTitle() +
                     "\n" + "Review Type  : " +  review.getReviewType() + "\n" + "Rating       : " + review.getRating() + "/5" + "\n" +
-                    "Description  : \n" +review.getReviewDescription()
-                );
+                    "Description  : \n" +review.getReviewDescription()+ "\n" 
+                    + "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             }
         }
         else
@@ -505,8 +514,11 @@ public class User
             }
             temp.enqueue(review);
         }
+
+        System.out.println("\nRESULT OF SEARCH");
+        System.out.println("====================");
         
-        System.out.println("Total Review Found : " + count);
+        System.out.println("\nTotal Review Found : " + count);
         System.out.println("---------------------");
 
         while(!temp.isEmpty())
@@ -525,8 +537,8 @@ public class User
                 System.out.println(
                     "\nProduct Name : " +review.getProductName() + "\n"+ "Title        : " +review.getReviewTitle() +
                     "\n" + "Review Type  : " +  review.getReviewType() + "\n" + "Rating       : " + review.getRating() + "/5" + "\n" +
-                    "Description  : \n" +review.getReviewDescription()
-                );
+                    "Description  : \n" +review.getReviewDescription()+ "\n" 
+                    + "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             }
         }
         else
@@ -541,15 +553,17 @@ public class User
         }
     }
   
+  
     public boolean addReview(Review review, Queue reviews){
 
         reviews.enqueue(review);
         return true;
     }
   
+   
     public void updateReviewTitle(Queue reviews) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter product name : ");
+        System.out.println("\nEnter product name : ");
         String productName = sc.nextLine();
         System.out.println("Enter new review title : ");
         String newReviewTitle = sc.nextLine();
@@ -566,6 +580,21 @@ public class User
             }
             data = reviews.getNext();
         }
+
+        String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+        for (String item : items) 
+        {
+            System.out.print(item);
+
+            try {
+                Thread.sleep(150);
+            }
+            catch (InterruptedException e) 
+            {
+                e.printStackTrace();
+            }
+        }
     
         if (updated) {
             System.out.println("Review successfully updated.");
@@ -578,7 +607,7 @@ public class User
 
     public void updateReviewType(Queue reviews) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter product name : ");
+        System.out.println("\nEnter product name : ");
         String productName = sc.nextLine();
         System.out.println("Enter new review type : ");
         String newReviewType = sc.nextLine();
@@ -595,6 +624,21 @@ public class User
             }
             data = reviews.getNext();
         }
+
+        String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+        for (String item : items) 
+        {
+            System.out.print(item);
+
+            try {
+                Thread.sleep(150);
+            }
+            catch (InterruptedException e) 
+            {
+                e.printStackTrace();
+            }
+        }
     
         if (updated) {
             System.out.println("Review successfully updated.");
@@ -607,7 +651,7 @@ public class User
 
     public void updateReviewDescription(Queue reviews) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter product name : ");
+        System.out.println("\nEnter product name : ");
         String productName = sc.nextLine();
         System.out.println("Enter new review description : ");
         String newReviewDescription = sc.nextLine();
@@ -625,6 +669,21 @@ public class User
             data = reviews.getNext();
         }
     
+        String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+        for (String item : items) 
+        {
+            System.out.print(item);
+
+            try {
+                Thread.sleep(150);
+            }
+            catch (InterruptedException e) 
+            {
+                e.printStackTrace();
+            }
+        }
+
         if (updated) {
             System.out.println("Review successfully updated.");
         }
@@ -636,7 +695,7 @@ public class User
 
     public void updateReviewRating(Queue reviews) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter product name : ");
+        System.out.println("\nEnter product name : ");
         String productName = sc.nextLine();
         System.out.println("Enter new review rating : ");
         int newReviewRating = sc.nextInt();
@@ -652,6 +711,21 @@ public class User
                 break; 
             }
             data = reviews.getNext();
+        }
+
+        String[] items = {"\nU","P","D","A","T","I","N","G",".",".",".\n"};
+
+        for (String item : items) 
+        {
+            System.out.print(item);
+
+            try {
+                Thread.sleep(150);
+            }
+            catch (InterruptedException e) 
+            {
+                e.printStackTrace();
+            }
         }
     
         if (updated) {

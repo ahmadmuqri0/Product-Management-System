@@ -38,7 +38,7 @@ public class FileReview {
         return reviews;
     }
 
-    public void updateReview(Queue reviews) {
+    /*public void updateReview(Queue reviews) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
             Queue tempQueue = new Queue();
 
@@ -56,6 +56,27 @@ public class FileReview {
         } catch (IOException e) {
             System.out.println("Error writing to user file: " + e.getMessage());
         }
+    }*/
+
+    public void updateReview(Queue reviews) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
+            Queue tempQueue = new Queue();
+    
+            while (!reviews.isEmpty()) {
+                Review review = (Review) reviews.dequeue();
+                String entry = review.toString(); // Convert Review object to string
+                writer.println(entry);
+                tempQueue.enqueue(review); // Enqueue the Review object, not the string
+            }
+    
+            while (!tempQueue.isEmpty()) {
+                reviews.enqueue(tempQueue.dequeue());
+            }
+    
+        } catch (IOException e) {
+            System.out.println("Error writing to user file: " + e.getMessage());
+        }
     }
+    
 
 }
