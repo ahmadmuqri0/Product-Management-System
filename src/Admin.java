@@ -8,7 +8,7 @@ public class Admin {
     public Admin(int adminID, String password) {
         this.adminID = adminID;
         this.password = password;
-    }
+    } //normal
 
     public int getAdminID() {
         return adminID;
@@ -18,7 +18,7 @@ public class Admin {
         return password;
     }
 
-    public boolean addUser(User user, LinkedList users) {
+    public boolean addUser(User user, LinkedList users) { //1
 
         boolean found = false;
         Object data = users.getFirst();
@@ -42,7 +42,7 @@ public class Admin {
         return true;
     }
 
-    public boolean removeUser(User user, LinkedList users) {
+    public boolean removeUser(User user, LinkedList users) { //2
 
         boolean found = false;
         Object data = users.getFirst();
@@ -67,7 +67,7 @@ public class Admin {
         return false;
     }
 
-    public boolean removeReview(String name, Queue reviews){
+    public boolean removeReview(String name, Queue reviews){ //3
 
         boolean found = false;
         Queue tempQueue = new Queue();
@@ -88,7 +88,7 @@ public class Admin {
         return found;
     }
 
-    public boolean addProduct(Product product, LinkedList products){
+    public boolean addProduct(Product product, LinkedList products){ //4
     
         boolean found = false;
         boolean add = false;
@@ -120,7 +120,7 @@ public class Admin {
         return true;
     }
 
-    public boolean removeProduct(Product product, LinkedList products){
+    public boolean removeProduct(Product product, LinkedList products){ //5
 
         boolean found = false;
         Object data = products.getFirst();
@@ -144,7 +144,7 @@ public class Admin {
     }
     
     
-    public void updateProductName(LinkedList products) {
+    public void updateProductName(LinkedList products) { //6
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter product name to update : ");
         String productName = sc.nextLine();
@@ -189,7 +189,7 @@ public class Admin {
         }
     }
 
-    public void updateProductID(LinkedList products) {
+    public void updateProductID(LinkedList products) { //6.1
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter product ID to update : ");
         String productID = sc.nextLine();
@@ -235,7 +235,7 @@ public class Admin {
         }
     }
 
-    public void updateProductBrand(LinkedList products) {
+    public void updateProductBrand(LinkedList products) { //6.2
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter product ID to update: ");
         String productID = sc.nextLine();
@@ -281,7 +281,7 @@ public class Admin {
         }
     }
 
-    public void updateProductPrice(LinkedList products) {
+    public void updateProductPrice(LinkedList products) { //6.3
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter product ID to update : ");
         String productID = sc.nextLine();
@@ -326,7 +326,7 @@ public class Admin {
         }
     }
     
-    public void updateProductAvailability(LinkedList products) {
+    public void updateProductAvailability(LinkedList products) { //6.4
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter product ID to update: ");
         String productID = sc.nextLine();

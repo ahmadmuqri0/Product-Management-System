@@ -23,7 +23,7 @@ public class User
     }
 
     
-    public void totalProduct(LinkedList products) {
+    public void totalProduct(LinkedList products) { //1
     
             Object data = products.getFirst();
             int count = 0;
@@ -36,7 +36,7 @@ public class User
             System.out.println("-------------------");
         }
 
-    public void displayProduct(LinkedList products) {
+    public void displayProduct(LinkedList products) { //2
         
         Object data = products.getFirst();    
         
@@ -51,7 +51,7 @@ public class User
         }
     } 
     
-    public void searchProductName(LinkedList products){
+    public void searchProductName(LinkedList products){ //3
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter product name");
         String productName = sc.nextLine();
@@ -107,7 +107,7 @@ public class User
         }
     }
 
-    public void searchProductID(LinkedList products){
+    public void searchProductID(LinkedList products){ //3.1
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter product ID");
         String productID = sc.nextLine();
@@ -160,7 +160,7 @@ public class User
         }
     }
 
-    public void searchProductBrand(LinkedList products) {
+    public void searchProductBrand(LinkedList products) { //3.2
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter product brand :");
         String productBrand = sc.nextLine();
@@ -215,7 +215,7 @@ public class User
         }
     }
 
-    public void searchProductPrice(LinkedList products){
+    public void searchProductPrice(LinkedList products){ //3.3
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter product price");
         double productPrice = sc.nextDouble();
@@ -270,7 +270,7 @@ public class User
     }
     
     
-    public void totalReview(Queue reviews){
+    public void totalReview(Queue reviews){ //4
         Queue temp = new Queue();
         Object data;
         int count = 0;
@@ -290,7 +290,7 @@ public class User
         }
     }
 
-    public void displayReview(Queue reviews) {
+    public void displayReview(Queue reviews) { //5
         Queue temp = new Queue();
         Object data;
         
@@ -313,7 +313,7 @@ public class User
         }
     }
 
-    public void searchReviewName(Queue reviews)
+    public void searchReviewName(Queue reviews) //6
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("\nEnter product name to search for review");
@@ -393,7 +393,7 @@ public class User
         }
     }
 
-    public void searchReviewType(Queue reviews)
+    public void searchReviewType(Queue reviews) //6.1
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("\nEnter review type ( Bad / Good )");
@@ -473,7 +473,7 @@ public class User
         }
     }
 
-    public void searchReviewRating(Queue reviews)
+    public void searchReviewRating(Queue reviews) //6.3
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("\nEnter review rating (1-5)");
@@ -554,14 +554,14 @@ public class User
     }
   
   
-    public boolean addReview(Review review, Queue reviews){
+    public boolean addReview(Review review, Queue reviews){ //7
 
         reviews.enqueue(review);
         return true;
     }
   
    
-    public void updateReviewTitle(Queue reviews) {
+    public void updateReviewTitle(Queue reviews) { //8
         Scanner sc = new Scanner(System.in);
         System.out.println("\nEnter product name : ");
         String productName = sc.nextLine();
@@ -605,7 +605,7 @@ public class User
         }
     }
 
-    public void updateReviewType(Queue reviews) {
+    public void updateReviewType(Queue reviews) { //8.1
         Scanner sc = new Scanner(System.in);
         System.out.println("\nEnter product name : ");
         String productName = sc.nextLine();
@@ -649,7 +649,7 @@ public class User
         }
     }
 
-    public void updateReviewDescription(Queue reviews) {
+    public void updateReviewDescription(Queue reviews) { //8.2
         Scanner sc = new Scanner(System.in);
         System.out.println("\nEnter product name : ");
         String productName = sc.nextLine();
@@ -693,7 +693,7 @@ public class User
         }
     }
 
-    public void updateReviewRating(Queue reviews) {
+    public void updateReviewRating(Queue reviews) { //8.3
         Scanner sc = new Scanner(System.in);
         System.out.println("\nEnter product name : ");
         String productName = sc.nextLine();
