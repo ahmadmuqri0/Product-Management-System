@@ -12,7 +12,7 @@ public class FileReview {
         this.filePath = filePath;
     }
 
-    public Queue loadReview() {
+    public Queue loadReview() { //1
         Queue reviews = new Queue();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -38,27 +38,7 @@ public class FileReview {
         return reviews;
     }
 
-    /*public void updateReview(Queue reviews) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
-            Queue tempQueue = new Queue();
-
-            while (!reviews.isEmpty()) {
-                Review review = (Review) reviews.dequeue();
-                String entry = review.toString();
-                writer.println(entry);
-                tempQueue.enqueue(entry);
-            }
-
-            while(!tempQueue.isEmpty()){
-                reviews.enqueue(tempQueue.dequeue());
-            }
-            
-        } catch (IOException e) {
-            System.out.println("Error writing to user file: " + e.getMessage());
-        }
-    }*/
-
-    public void updateReview(Queue reviews) {
+    public void updateReview(Queue reviews) { //2
         try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
             Queue tempQueue = new Queue();
     
